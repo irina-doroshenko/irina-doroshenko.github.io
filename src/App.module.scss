@@ -1,0 +1,5 @@
+@use './shared//style/mixins' as *;
+
+.wrapper {
+  @include wrapper;
+}

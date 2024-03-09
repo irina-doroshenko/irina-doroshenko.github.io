@@ -1,4 +1,5 @@
 @use './variables' as *;
+@use './breakpoints' as *;
 
 @mixin typography_heading {
   font:
@@ -10,4 +11,34 @@
   font:
     normal $font-weight-normal 16px/26px 'Nunito',
     sans-serif;
+}
+
+@mixin container {
+  width: 100%;
+  padding-left: $spacing-s;
+  padding-right: $spacing-s;
+
+  @include for-tablet {
+    padding-left: $spacing-m;
+    padding-right: $spacing-m;
+  }
+
+  @include for-desktop {
+    padding-left: $spacing-l;
+    padding-right: $spacing-l;
+  }
+
+  @include for-large-desktop {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+@mixin wrapper {
+  width: 100%;
+  margin: 0 auto;
+
+  @include for-large-desktop {
+    max-width: 1170px;
+  }
 }

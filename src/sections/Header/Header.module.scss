@@ -1,0 +1,29 @@
+@use '../../shared/style/variables' as *;
+@use '../../shared/style/mixins' as *;
+
+.headerWrapper {
+  background: $landing-white;
+}
+
+.header {
+  @include wrapper;
+  @include container;
+  padding-top: 13px;
+  padding-bottom: 13px;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+
+  ul {
+    display: inline-flex;
+    gap: 10px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      display: inline-block;
+    }
+  }
+}
