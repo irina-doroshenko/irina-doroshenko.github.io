@@ -1,0 +1,13 @@
+@use './variables' as *;
+
+@mixin typography_heading {
+  font:
+    normal $font-weight-normal 40px/40px 'Nunito',
+    sans-serif;
+}
+
+@mixin typography_text {
+  font:
+    normal $font-weight-normal 16px/26px 'Nunito',
+    sans-serif;
+}
