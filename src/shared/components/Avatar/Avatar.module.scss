@@ -1,0 +1,10 @@
+@use '../../style/variables' as *;
+
+img.avatar {
+  width: $avatar-size;
+  height: $avatar-size;
+  border-radius: 50%;
+  display: inline-block;
+  font-size: 0;
+  object-fit: cover;
+}

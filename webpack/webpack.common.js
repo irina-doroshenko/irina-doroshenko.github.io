@@ -36,11 +36,11 @@ module.exports = {
         ],
       },
       {
-        test: /\.(?:ico|gif|png|jpg|jpeg|webp)$/i,
+        test: /\.(?:ico|gif|png|jpg|jpeg|webp|svg)$/i,
         type: 'asset/resource',
       },
       {
-        test: /\.(woff(2)?|eot|ttf|otf|svg|)$/,
+        test: /\.(woff(2)?|eot|ttf|otf|)$/,
         type: 'asset/inline',
       },
     ],
