@@ -1,0 +1,37 @@
+@use '../../shared/style/mixins' as *;
+@use '../../shared/style/variables' as *;
+@use '../../shared/style/breakpoints' as *;
+
+.hero {
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  color: $typography-light;
+  text-align: center;
+  padding-top: 40px;
+  padding-bottom: 40px;
+
+  @include for-desktop {
+    min-height: 650px;
+  }
+
+  @include container;
+
+  h1 {
+    @include typography_heading;
+    max-width: 380px;
+    margin-bottom: 21px;
+  }
+
+  p {
+    @include typography_text;
+    max-width: 380px;
+    margin-bottom: 32px;
+  }
+}

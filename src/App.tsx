@@ -1,5 +1,6 @@
 import { FC, RefObject, useRef } from 'react';
 import { Header } from './sections/Header';
+import { Hero } from './sections/Hero';
 import styles from './App.module.scss';
 
 const App: FC = () => {
@@ -19,6 +20,7 @@ const App: FC = () => {
         onUsersClick={() => scrollInto(usersRef)}
       />
       <div className={styles.wrapper}>
+        <Hero onSignUpClick={() => scrollInto(signUpRef)} />
         <section ref={usersRef}>
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ex, tempore.
           Facilis laudantium praesentium, quo eos accusamus omnis veritatis

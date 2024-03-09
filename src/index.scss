@@ -13,3 +13,9 @@ body {
   font-weight: 400;
   background-color: $landing-background-color;
 }
+
+h1,
+p {
+  margin: 0;
+  padding: 0;
+}
