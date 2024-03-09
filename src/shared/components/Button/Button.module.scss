@@ -1,0 +1,27 @@
+@use '../../style/variables' as *;
+@use '../../style/mixins' as *;
+
+button.button {
+  background-color: $landing-primary-color;
+  outline: none;
+  border: none;
+  border-radius: $button-radius;
+  @include typography_text;
+  color: $landing-black-color;
+  padding: 4px 22px;
+  cursor: pointer;
+
+  &:focus {
+    outline: none;
+  }
+
+  &::first-letter {
+    text-transform: capitalize;
+  }
+
+  &:disabled {
+    background-color: $button-disabled;
+    color: $typography-light;
+    cursor: auto;
+  }
+}
