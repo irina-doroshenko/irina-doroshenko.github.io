@@ -1,0 +1,19 @@
+@use '../../style/variables' as *;
+
+@keyframes spinner {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spinner {
+  display: inline-block;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border-top: 4px solid rgba($landing-secondary-color, 1);
+  border-left: 4px solid rgba($landing-secondary-color, 1);
+  border-bottom: 4px solid rgba($landing-secondary-color, 1);
+  border-right: 4px solid rgba($landing-secondary-color, 0);
+  animation: spinner 0.8s linear infinite;
+}
