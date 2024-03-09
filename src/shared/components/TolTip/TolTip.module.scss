@@ -1,0 +1,32 @@
+@use '../../style/mixins' as *;
+@use '../../style/variables' as *;
+
+.tooltip {
+  position: relative;
+
+  .tooltipText {
+    @include typography_text;
+    color: $typography-light;
+    background-color: $landing-black-color;
+    padding: 3px 16px;
+    visibility: hidden;
+    border-radius: $field-radius;
+    position: absolute;
+    z-index: 1;
+    bottom: -21px;
+    left: 77px;
+    transform: translateY(100%);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  &:hover {
+    .targetElement {
+      cursor: pointer;
+    }
+    .tooltipText {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+}
