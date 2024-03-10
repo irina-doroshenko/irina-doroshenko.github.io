@@ -16,7 +16,7 @@ export const TolTip: FC<PropsWithChildren<TolTipProps>> = ({
   ) : (
     <div className={styles.tooltip}>
       <div className={styles.targetElement}>{children}</div>
-      <span className={styles.tooltipText}>{message}</span>
+      <p className={styles.tooltipText}>{message}</p>
     </div>
   );
 };
