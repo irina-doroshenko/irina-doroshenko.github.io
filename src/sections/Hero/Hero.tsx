@@ -1,14 +1,15 @@
 /* eslint-disable react/no-unescaped-entities */
-import { FC } from 'react';
+import { FC, RefObject } from 'react';
 import { Button } from '../../shared/components/Button';
+import { scrollInto } from '../../utils/scrollIntoElement';
 import heroImage from '../../assets/heroImage.jpg';
 import styles from './Hero.module.scss';
 
 interface HeroProps {
-  onSignUpClick: () => void;
+  signUpRef?: RefObject<HTMLElement>;
 }
 
-export const Hero: FC<HeroProps> = ({ onSignUpClick }) => {
+export const Hero: FC<HeroProps> = ({ signUpRef }) => {
   return (
     <section
       className={styles.hero}
@@ -24,7 +25,7 @@ export const Hero: FC<HeroProps> = ({ onSignUpClick }) => {
         mind. They should also be excited to learn, as the world of Front-End
         Development keeps evolving.
       </p>
-      <Button onClick={onSignUpClick}>sign up</Button>
+      <Button onClick={() => scrollInto(signUpRef)}>sign up</Button>
     </section>
   );
 };

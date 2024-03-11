@@ -3,6 +3,7 @@
 @use '../../shared/style/breakpoints' as *;
 
 .hero {
+  margin-top: 60px;
   min-height: 500px;
   display: flex;
   flex-direction: column;

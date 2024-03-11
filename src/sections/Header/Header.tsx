@@ -1,14 +1,15 @@
-import { FC } from 'react';
+import { FC, RefObject } from 'react';
 import { Button } from '../../shared/components/Button';
+import { scrollInto } from '../../utils/scrollIntoElement';
 import styles from './Header.module.scss';
 import logo from '../../assets/logo.svg';
 
 interface HeaderProps {
-  onUsersClick: () => void;
-  onSignUpClick: () => void;
+  usersRef?: RefObject<HTMLElement>;
+  signUpRef?: RefObject<HTMLElement>;
 }
 
-export const Header: FC<HeaderProps> = ({ onSignUpClick, onUsersClick }) => {
+export const Header: FC<HeaderProps> = ({ usersRef, signUpRef }) => {
   return (
     <header className={styles.headerWrapper}>
       <div className={styles.header}>
@@ -16,10 +17,10 @@ export const Header: FC<HeaderProps> = ({ onSignUpClick, onUsersClick }) => {
         <nav>
           <ul>
             <li>
-              <Button onClick={() => onUsersClick()}>users</Button>
+              <Button onClick={() => scrollInto(usersRef)}>users</Button>
             </li>
             <li>
-              <Button onClick={() => onSignUpClick()}>sign up</Button>
+              <Button onClick={() => scrollInto(signUpRef)}>sign up</Button>
             </li>
           </ul>
         </nav>

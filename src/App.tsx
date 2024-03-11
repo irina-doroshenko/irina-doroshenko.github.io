@@ -1,4 +1,4 @@
-import { FC, RefObject, useRef } from 'react';
+import { FC, useRef } from 'react';
 import { Header } from './sections/Header';
 import { Hero } from './sections/Hero';
 import { UsersSections } from './sections/Users';
@@ -9,20 +9,11 @@ const App: FC = () => {
   const usersRef = useRef<HTMLElement>(null);
   const signUpRef = useRef<HTMLElement>(null);
 
-  const scrollInto = (ref: RefObject<HTMLElement>): void => {
-    ref.current?.scrollIntoView({
-      behavior: 'smooth',
-    });
-  };
-
   return (
     <RootStoreContextProvider>
-      <Header
-        onSignUpClick={() => scrollInto(signUpRef)}
-        onUsersClick={() => scrollInto(usersRef)}
-      />
+      <Header usersRef={usersRef} signUpRef={signUpRef} />
       <div className={styles.wrapper}>
-        <Hero onSignUpClick={() => scrollInto(signUpRef)} />
+        <Hero signUpRef={signUpRef} />
         <UsersSections refElem={usersRef} />
         <section ref={signUpRef}>
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ratione
