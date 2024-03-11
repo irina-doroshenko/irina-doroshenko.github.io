@@ -1,6 +1,10 @@
 import axios, { AxiosError, AxiosResponse } from 'axios';
 import { UserService } from './UserService';
 
+if (!process.env.BASE_API_URL) {
+  throw new Error('Please provide all required environment variables');
+}
+
 export const getResponseData = (response: AxiosResponse): AxiosResponse =>
   response.data;
 
@@ -18,8 +22,10 @@ const catchError = (error: AxiosError) => {
   });
 };
 
+const baseUrl = process.env.BASE_API_URL;
+
 const http = axios.create({
-  baseURL: 'https://frontend-test-assignment-api.abz.agency/api/v1',
+  baseURL: baseUrl,
 });
 
 http.interceptors.response.use(getResponseData, catchError);
