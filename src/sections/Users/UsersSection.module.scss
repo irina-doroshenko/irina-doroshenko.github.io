@@ -1,0 +1,58 @@
+@use '../../shared/style/mixins' as *;
+@use '../../shared/style/breakpoints' as *;
+@use '../../shared/style/variables' as *;
+
+.section {
+  @include container;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-ml;
+
+  h1 {
+    @include typography_heading;
+    text-align: center;
+  }
+
+  .cardWrapper {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+
+    @include for-tablet {
+      margin-right: -$spacing-s;
+      margin-top: -$spacing-s;
+    }
+
+    @include for-desktop {
+      margin-right: -$spacing-m;
+      margin-top: -$spacing-m;
+    }
+
+    .cardElement {
+      flex: 0 1 100%;
+      padding-bottom: $spacing-sm;
+      &:last-child {
+        padding-bottom: 0;
+      }
+
+      @include for-tablet {
+        flex: 0 1 50%;
+        padding: $spacing-s $spacing-s 0 0;
+      }
+
+      @include for-desktop {
+        flex: 0 1 33.3333%;
+        padding: $spacing-m $spacing-m 0 0;
+      }
+    }
+  }
+
+  .spinner {
+    align-self: center;
+  }
+
+  .button {
+    align-self: center;
+    display: block;
+  }
+}

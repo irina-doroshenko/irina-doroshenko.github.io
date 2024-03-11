@@ -1,35 +1,29 @@
 import { FC, RefObject, useRef } from 'react';
 import { Header } from './sections/Header';
 import { Hero } from './sections/Hero';
+import { UsersSections } from './sections/Users';
 import styles from './App.module.scss';
+import { RootStoreContextProvider } from './contexts/RootStoreContext';
 
 const App: FC = () => {
-  const usersRef = useRef<HTMLDivElement>(null);
-  const signUpRef = useRef<HTMLDivElement>(null);
+  const usersRef = useRef<HTMLElement>(null);
+  const signUpRef = useRef<HTMLElement>(null);
 
-  const scrollInto = (ref: RefObject<HTMLDivElement>): void => {
+  const scrollInto = (ref: RefObject<HTMLElement>): void => {
     ref.current?.scrollIntoView({
       behavior: 'smooth',
     });
   };
 
   return (
-    <>
+    <RootStoreContextProvider>
       <Header
         onSignUpClick={() => scrollInto(signUpRef)}
         onUsersClick={() => scrollInto(usersRef)}
       />
       <div className={styles.wrapper}>
         <Hero onSignUpClick={() => scrollInto(signUpRef)} />
-        <section ref={usersRef}>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ex, tempore.
-          Facilis laudantium praesentium, quo eos accusamus omnis veritatis
-          libero iure ipsam blanditiis deserunt totam similique tenetur possimus
-          sit provident. Fuga corrupti odio corporis nesciunt amet illum nulla
-          iusto porro adipisci cupiditate, doloribus neque animi suscipit
-          numquam possimus sunt debitis placeat commodi laudantium sit. Ullam,
-          nesciunt animi.
-        </section>
+        <UsersSections refElem={usersRef} />
         <section ref={signUpRef}>
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ratione
           laudantium inventore itaque obcaecati quidem dolore consectetur
@@ -42,7 +36,7 @@ const App: FC = () => {
           libero beatae cumque impedit sequi, perspiciatis assumenda iusto?
         </section>
       </div>
-    </>
+    </RootStoreContextProvider>
   );
 };
 

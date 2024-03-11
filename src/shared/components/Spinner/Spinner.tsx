@@ -1,6 +1,10 @@
 import { FC } from 'react';
 import styles from './Spinner.module.scss';
 
-export const Spinner: FC = () => {
-  return <div className={styles.spinner} />;
+interface SppinnerProps {
+  className?: string;
+}
+
+export const Spinner: FC<SppinnerProps> = ({ className }) => {
+  return <div className={`${styles.spinner} ${className || ''}`} />;
 };

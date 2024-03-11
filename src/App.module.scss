@@ -1,5 +1,10 @@
 @use './shared//style/mixins' as *;
+@use './shared/style/variables' as *;
 
 .wrapper {
   @include wrapper;
+
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xl;
 }
