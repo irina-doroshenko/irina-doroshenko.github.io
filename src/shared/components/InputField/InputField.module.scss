@@ -1,0 +1,67 @@
+@use '../../style/variables' as *;
+@use '../../style/mixins' as *;
+
+.inputWrapper {
+  position: relative;
+
+  .labelText {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate($spacing-s, 0%);
+    opacity: 0;
+    transition: all 0.1s;
+    @include label_text;
+    color: $helper-text-normal;
+    background-color: $landing-background-color;
+    padding: 0 4px;
+
+    &::first-letter {
+      text-transform: capitalize;
+    }
+  }
+
+  .input {
+    @include typography_text;
+    color: $landing-black-color;
+    padding: $spacing-xs $spacing-s;
+    border-radius: $field-radius;
+    border: 1px solid $border-gray;
+    background-color: transparent;
+
+    &.error {
+      border: 1px solid $helper-text-error;
+    }
+
+    &::placeholder {
+      text-transform: capitalize;
+    }
+
+    &:focus {
+      outline: none;
+
+      ~ .labelText {
+        opacity: 1;
+        transform: translate($spacing-s, -50%);
+      }
+    }
+  }
+
+  .helperText {
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    transform: translate($spacing-s, 100%);
+    @include label_text;
+    color: $helper-text-normal;
+    padding: 0 4px;
+
+    &::first-letter {
+      text-transform: capitalize;
+    }
+  }
+
+  .errorText {
+    color: $helper-text-error;
+  }
+}

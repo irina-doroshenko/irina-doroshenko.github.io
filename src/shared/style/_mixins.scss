@@ -13,6 +13,12 @@
     sans-serif;
 }
 
+@mixin label_text {
+  font:
+    normal $font-weight-normal 12px/14px 'Nunito',
+    sans-serif;
+}
+
 @mixin container {
   width: 100%;
   padding-left: $spacing-s;
