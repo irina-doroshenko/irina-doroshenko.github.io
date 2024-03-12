@@ -2,16 +2,19 @@
 @use '../../style/mixins' as *;
 
 .inputWrapper {
+  display: inline-block;
+  min-width: 328px;
   position: relative;
 
   .labelText {
+    z-index: 1;
     position: absolute;
-    top: 0;
+    top: 50%;
     left: 0;
-    transform: translate($spacing-s, 0%);
+    transform: translate($spacing-s, -50%);
     opacity: 0;
-    transition: all 0.1s;
-    @include label_text;
+    transition: all 0.3s;
+    @include typography_text;
     color: $helper-text-normal;
     background-color: $landing-background-color;
     padding: 0 4px;
@@ -19,9 +22,20 @@
     &::first-letter {
       text-transform: capitalize;
     }
+
+    &.upperText {
+      @include label_text;
+      top: 0;
+      opacity: 1;
+      transform: translate($spacing-s, -50%);
+      z-index: 2;
+    }
   }
 
   .input {
+    position: relative;
+    z-index: 2;
+    width: 100%;
     @include typography_text;
     color: $landing-black-color;
     padding: $spacing-xs $spacing-s;
@@ -39,8 +53,11 @@
 
     &:focus {
       outline: none;
+      z-index: 1;
 
       ~ .labelText {
+        @include label_text;
+        top: 0;
         opacity: 1;
         transform: translate($spacing-s, -50%);
       }

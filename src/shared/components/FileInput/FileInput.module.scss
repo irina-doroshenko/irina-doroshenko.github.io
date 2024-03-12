@@ -1,0 +1,89 @@
+@use '../../style/variables' as *;
+@use '../../style/mixins' as *;
+
+.inputWrapper {
+  display: inline-block;
+  min-width: 328px;
+  position: relative;
+
+  .input {
+    display: flex;
+
+    input[type='file'] {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 0;
+      visibility: hidden;
+      opacity: 0;
+    }
+
+    .button {
+      cursor: pointer;
+      @include typography_text;
+      color: $landing-black-color;
+      padding: $spacing-xs $spacing-s;
+      border-radius: $field-radius 0 0 $field-radius;
+      border-style: solid;
+      border-width: 1px;
+      border-color: $landing-black-color;
+      background-color: transparent;
+
+      &::first-letter {
+        text-transform: capitalize;
+      }
+    }
+
+    p {
+      flex: 1 1 auto;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      @include typography_text;
+      padding: $spacing-xs $spacing-s;
+      border-radius: 0 $field-radius $field-radius 0;
+      border-style: solid;
+      border-width: 1px;
+      border-color: $border-gray $border-gray $border-gray transparent;
+      background-color: transparent;
+
+      &.placeholder {
+        color: $label-gray;
+
+        &::first-letter {
+          text-transform: capitalize;
+        }
+      }
+
+      &.fileName {
+        color: $landing-black-color;
+      }
+    }
+
+    &.error {
+      label {
+        border-color: $helper-text-error;
+      }
+
+      p {
+        border-color: $helper-text-error $helper-text-error $helper-text-error
+          transparent;
+      }
+    }
+  }
+
+  .errorText {
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    transform: translate($spacing-s, 100%);
+    @include label_text;
+    color: $helper-text-error;
+    padding: 0 4px;
+
+    &::first-letter {
+      text-transform: capitalize;
+    }
+  }
+}
