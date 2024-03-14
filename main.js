@@ -1295,8 +1295,8 @@ const Header = _ref => {
 };
 ;// CONCATENATED MODULE: ./src/sections/Header/index.ts
 
-;// CONCATENATED MODULE: ./src/assets/heroImage.jpg
-const heroImage_namespaceObject = __webpack_require__.p + "assets/5183113c46fb820ad12c.jpg";
+;// CONCATENATED MODULE: ./src/assets/heroImage.webp
+const heroImage_namespaceObject = __webpack_require__.p + "assets/ea3cfef48f4f52d4c531.webp";
 ;// CONCATENATED MODULE: ./src/sections/Hero/Hero.module.scss
 // extracted by mini-css-extract-plugin
 /* harmony default export */ const Hero_module = ({"hero":"Hero-module__hero__o6Wmt"});
