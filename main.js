@@ -19089,7 +19089,7 @@ const invalidEmailErr = 'email is invalid';
 const invalidPhoneErr = 'phone is invalid';
 const maxFileSizeErr = 'max file size - 5MB';
 const SignUpSchema = create$3().shape({
-  name: create$6().required(requiredErr).min(2, longNameErr).max(60, shortNameErr),
+  name: create$6().required(requiredErr).min(2, shortNameErr).max(60, longNameErr),
   email: create$6().required(requiredErr).email(invalidEmailErr),
   phone: create$6().required(requiredErr).matches(phoneReqExp, invalidPhoneErr),
   position_id: create$5().required(requiredErr),
@@ -19223,7 +19223,7 @@ const SignUpForm = observer(() => {
         errorText: formik.errors.photo
       })]
     }), /*#__PURE__*/(0,jsx_runtime.jsx)(Button, {
-      disabled: userStore.isUserCreating || Object.keys(formik.touched).length !== Object.keys(formik.values).length || !!Object.keys(formik.errors).length,
+      disabled: userStore.isUserCreating || Object.values(formik.values).some(v => !v) || !!Object.keys(formik.errors).length,
       className: SignUpForm_module.button,
       onClick: () => formik.handleSubmit(),
       children: "Sign up"
