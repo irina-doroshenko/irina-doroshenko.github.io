@@ -43,6 +43,7 @@
     border: 1px solid $border-gray;
     background-color: transparent;
     appearance: none;
+    box-shadow: none;
 
     &.error {
       border: 1px solid $helper-text-error;
