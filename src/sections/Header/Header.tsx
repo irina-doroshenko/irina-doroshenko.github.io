@@ -13,7 +13,7 @@ export const Header: FC<HeaderProps> = ({ usersRef, signUpRef }) => {
   return (
     <header className={styles.headerWrapper}>
       <div className={styles.header}>
-        <img src={logo}></img>
+        <img src={logo} alt="logo"></img>
         <nav>
           <ul>
             <li>

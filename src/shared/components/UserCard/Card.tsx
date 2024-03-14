@@ -19,7 +19,7 @@ export const Card: FC<User> = ({ name, email, phone, position, photo }) => {
 
   return (
     <div className={styles.card}>
-      <Avatar source={photo} />
+      <Avatar source={photo} alt="avatar" />
       <div className={styles.name}>
         <ToolTip message={name} hidden={!isNameOverflowing}>
           <p className={styles.text} ref={nameRef}>

@@ -5,9 +5,14 @@ import fallbackImage from '../../../assets/avatar-fallback.svg';
 interface AvatarProps {
   source?: string | null;
   className?: string;
+  alt?: string;
 }
 
-export const Avatar: FC<AvatarProps> = ({ source, className = '' }) => {
+export const Avatar: FC<AvatarProps> = ({
+  source,
+  className = '',
+  alt = '',
+}) => {
   return (
     <img
       loading="lazy"
@@ -17,6 +22,7 @@ export const Avatar: FC<AvatarProps> = ({ source, className = '' }) => {
         e.currentTarget.onerror = null;
         e.currentTarget.src = fallbackImage;
       }}
+      alt={alt}
     />
   );
 };
