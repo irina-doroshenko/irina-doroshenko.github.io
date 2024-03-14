@@ -1,5 +1,6 @@
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = {
   mode: 'production',
@@ -7,7 +8,19 @@ module.exports = {
   devtool: 'source-map',
 
   optimization: {
+    minimize: true,
     minimizer: [
+      new TerserPlugin({
+        terserOptions: {
+          compress: {
+            drop_console: true,
+          },
+          format: {
+            comments: false,
+          },
+          mangle: true,
+        },
+      }),
       new CssMinimizerPlugin({
         minimizerOptions: {
           preset: [

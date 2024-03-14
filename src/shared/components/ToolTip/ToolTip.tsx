@@ -1,12 +1,12 @@
 import { FC, PropsWithChildren } from 'react';
-import styles from './TolTip.module.scss';
+import styles from './ToolTip.module.scss';
 
-interface TolTipProps {
+interface ToolTipProps {
   message: string;
   hidden?: boolean;
 }
 
-export const TolTip: FC<PropsWithChildren<TolTipProps>> = ({
+export const ToolTip: FC<PropsWithChildren<ToolTipProps>> = ({
   message,
   children,
   hidden = false,

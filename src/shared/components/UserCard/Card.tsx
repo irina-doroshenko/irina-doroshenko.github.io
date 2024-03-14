@@ -1,7 +1,7 @@
 import { FC, useRef } from 'react';
 import { Avatar } from '../Avatar';
 import styles from './Card.module.scss';
-import { TolTip } from '../TolTip';
+import { ToolTip } from '../ToolTip';
 import { useIsOverflow } from '../../../hooks/useIsOverflow';
 import { formatUkrainePhoneNumber } from '../../../utils/formatUkrainePhoneNumber';
 import { User } from '../../../stores/types';
@@ -21,28 +21,28 @@ export const Card: FC<User> = ({ name, email, phone, position, photo }) => {
     <div className={styles.card}>
       <Avatar source={photo} />
       <div className={styles.name}>
-        <TolTip message={name} hidden={!isNameOverflowing}>
+        <ToolTip message={name} hidden={!isNameOverflowing}>
           <p className={styles.text} ref={nameRef}>
             {name}
           </p>
-        </TolTip>
+        </ToolTip>
       </div>
       <div className={styles.info}>
-        <TolTip message={position} hidden={!isPositionOverflowing}>
+        <ToolTip message={position} hidden={!isPositionOverflowing}>
           <p className={styles.text} ref={positionRef}>
             {position}
           </p>
-        </TolTip>
-        <TolTip message={email} hidden={!isEmailOverflowing}>
+        </ToolTip>
+        <ToolTip message={email} hidden={!isEmailOverflowing}>
           <p className={styles.text} ref={emailRef}>
             {email}
           </p>
-        </TolTip>
-        <TolTip message={phone} hidden={!isPhoneOverflowing}>
+        </ToolTip>
+        <ToolTip message={phone} hidden={!isPhoneOverflowing}>
           <p className={styles.text} ref={phoneRef}>
             {formatUkrainePhoneNumber(phone)}
           </p>
-        </TolTip>
+        </ToolTip>
       </div>
     </div>
   );
