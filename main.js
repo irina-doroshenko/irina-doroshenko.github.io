@@ -1299,7 +1299,7 @@ const Header = _ref => {
 const heroImage_namespaceObject = __webpack_require__.p + "assets/ea3cfef48f4f52d4c531.webp";
 ;// CONCATENATED MODULE: ./src/sections/Hero/Hero.module.scss
 // extracted by mini-css-extract-plugin
-/* harmony default export */ const Hero_module = ({"hero":"Hero-module__hero__o6Wmt"});
+/* harmony default export */ const Hero_module = ({"hero":"Hero-module__hero__o6Wmt","backgroundImg":"Hero-module__backgroundImg__BvK21","button":"Hero-module__button__xvD8d"});
 ;// CONCATENATED MODULE: ./src/sections/Hero/Hero.tsx
 /* eslint-disable react/no-unescaped-entities */
 
@@ -1315,15 +1315,18 @@ const Hero = _ref => {
   } = _ref;
   return /*#__PURE__*/(0,jsx_runtime.jsxs)("section", {
     className: Hero_module.hero,
-    style: {
-      backgroundImage: `url("${heroImage_namespaceObject}")`
-    },
-    children: [/*#__PURE__*/(0,jsx_runtime.jsx)("h1", {
+    children: [/*#__PURE__*/(0,jsx_runtime.jsx)("img", {
+      src: heroImage_namespaceObject,
+      className: Hero_module.backgroundImg,
+      loading: 'lazy',
+      alt: "background image"
+    }), /*#__PURE__*/(0,jsx_runtime.jsx)("h1", {
       children: "Test assignment for front-end developer"
     }), /*#__PURE__*/(0,jsx_runtime.jsx)("p", {
       children: "What defines a good front-end developer is one that has skilled knowledge of HTML, CSS, JS with a vast understanding of User design thinking as they'll be building web interfaces with accessibility in mind. They should also be excited to learn, as the world of Front-End Development keeps evolving."
     }), /*#__PURE__*/(0,jsx_runtime.jsx)(Button, {
       onClick: () => scrollInto(signUpRef),
+      className: Hero_module.button,
       children: "sign up"
     })]
   });
