@@ -124,8 +124,7 @@ export const SignUpForm: FC = observer(() => {
       <Button
         disabled={
           userStore.isUserCreating ||
-          Object.keys(formik.touched).length !==
-            Object.keys(formik.values).length ||
+          Object.values(formik.values).some((v) => !v) ||
           !!Object.keys(formik.errors).length
         }
         className={styles.button}

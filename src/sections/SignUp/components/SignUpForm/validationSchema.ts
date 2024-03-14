@@ -13,8 +13,8 @@ const maxFileSizeErr = 'max file size - 5MB';
 export const SignUpSchema = Yup.object<SignUpFormData>().shape({
   name: Yup.string()
     .required(requiredErr)
-    .min(2, longNameErr)
-    .max(60, shortNameErr),
+    .min(2, shortNameErr)
+    .max(60, longNameErr),
   email: Yup.string().required(requiredErr).email(invalidEmailErr),
   phone: Yup.string()
     .required(requiredErr)
