@@ -1,0 +1,59 @@
+@use '../../../../shared/style/mixins' as *;
+@use '../../../../shared/style/variables' as *;
+
+.form {
+  position: relative;
+  max-width: 380px;
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-ml;
+
+  .spinnerWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba($button-disabled, 0.1);
+  }
+
+  .positions {
+    position: relative;
+
+    .heading {
+      @include typography_text;
+      color: $landing-black-color;
+      margin-bottom: 11px;
+    }
+
+    .radioSpacing {
+      display: block;
+      margin-bottom: 7px;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    .positionError {
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      transform: translate($spacing-s, 100%);
+      @include label_text;
+      color: $helper-text-error;
+      padding: 0 4px;
+
+      &::first-letter {
+        text-transform: capitalize;
+      }
+    }
+  }
+}
+
+.button {
+  align-self: center;
+}

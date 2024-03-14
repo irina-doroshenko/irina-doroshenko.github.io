@@ -14,13 +14,12 @@
   .info,
   .name {
     width: 100%;
-  }
-
-  p {
-    @include typography_text;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    text-align: center;
+    p.text {
+      @include typography_text;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      text-align: center;
+    }
   }
 }

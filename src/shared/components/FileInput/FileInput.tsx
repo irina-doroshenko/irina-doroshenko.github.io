@@ -16,6 +16,7 @@ export const FileInput: FC<FileInputProps> = ({
   name,
   value,
   onChange,
+  onBlur,
   accept,
   errorText,
   isError,
@@ -37,6 +38,7 @@ export const FileInput: FC<FileInputProps> = ({
           onChange={(e) => {
             onChange && onChange(e);
           }}
+          onBlur={(e) => onBlur && onBlur(e)}
         />
         <p className={value ? styles.fileName : styles.placeholder}>
           {value ? value.name : placeholder}

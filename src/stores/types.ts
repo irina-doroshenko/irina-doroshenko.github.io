@@ -1,3 +1,8 @@
+export interface Position {
+  id: number;
+  name: string;
+}
+
 export interface User {
   id: string | number;
   name: string;

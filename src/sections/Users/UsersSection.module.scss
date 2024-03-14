@@ -4,6 +4,7 @@
 
 .section {
   @include container;
+  @include section_spacing;
   display: flex;
   flex-direction: column;
   gap: $spacing-ml;
@@ -11,6 +12,9 @@
   h1 {
     @include typography_heading;
     text-align: center;
+    span {
+      text-transform: uppercase;
+    }
   }
 
   .cardWrapper {

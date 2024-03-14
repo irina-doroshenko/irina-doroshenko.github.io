@@ -1,10 +1,10 @@
 import { FC, useRef } from 'react';
-import { User } from './types';
 import { Avatar } from '../Avatar';
 import styles from './Card.module.scss';
 import { TolTip } from '../TolTip';
 import { useIsOverflow } from '../../../hooks/useIsOverflow';
 import { formatUkrainePhoneNumber } from '../../../utils/formatUkrainePhoneNumber';
+import { User } from '../../../stores/types';
 
 export const Card: FC<User> = ({ name, email, phone, position, photo }) => {
   const nameRef = useRef(null);
@@ -22,18 +22,26 @@ export const Card: FC<User> = ({ name, email, phone, position, photo }) => {
       <Avatar source={photo} />
       <div className={styles.name}>
         <TolTip message={name} hidden={!isNameOverflowing}>
-          <p ref={nameRef}>{name}</p>
+          <p className={styles.text} ref={nameRef}>
+            {name}
+          </p>
         </TolTip>
       </div>
       <div className={styles.info}>
         <TolTip message={position} hidden={!isPositionOverflowing}>
-          <p ref={positionRef}>{position}</p>
+          <p className={styles.text} ref={positionRef}>
+            {position}
+          </p>
         </TolTip>
         <TolTip message={email} hidden={!isEmailOverflowing}>
-          <p ref={emailRef}>{email}</p>
+          <p className={styles.text} ref={emailRef}>
+            {email}
+          </p>
         </TolTip>
         <TolTip message={phone} hidden={!isPhoneOverflowing}>
-          <p ref={phoneRef}>{formatUkrainePhoneNumber(phone)}</p>
+          <p className={styles.text} ref={phoneRef}>
+            {formatUkrainePhoneNumber(phone)}
+          </p>
         </TolTip>
       </div>
     </div>

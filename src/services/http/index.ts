@@ -1,5 +1,6 @@
 import axios, { AxiosError, AxiosResponse } from 'axios';
 import { UserService } from './UserService';
+import { PositionService } from './PositionService';
 
 if (!process.env.BASE_API_URL) {
   throw new Error('Please provide all required environment variables');
@@ -30,5 +31,5 @@ const http = axios.create({
 
 http.interceptors.response.use(getResponseData, catchError);
 
-export { UserService };
+export { UserService, PositionService };
 export default http;

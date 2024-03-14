@@ -15,11 +15,11 @@
       left: 0;
       width: 0;
       height: 0;
-      visibility: hidden;
       opacity: 0;
     }
 
     .button {
+      flex: 0 0 auto;
       cursor: pointer;
       @include typography_text;
       color: $landing-black-color;
@@ -62,7 +62,7 @@
     }
 
     &.error {
-      label {
+      .button {
         border-color: $helper-text-error;
       }
 

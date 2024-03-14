@@ -1,0 +1,25 @@
+@use '../../shared/style/mixins' as *;
+@use '../../shared/style/variables' as *;
+
+.section {
+  @include container;
+  @include section_spacing;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-ml;
+
+  h1 {
+    @include typography_heading;
+    text-align: center;
+
+    span {
+      text-transform: uppercase;
+    }
+  }
+
+  .successImg {
+    max-width: 100%;
+    align-self: center;
+    display: block;
+  }
+}

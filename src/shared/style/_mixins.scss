@@ -48,3 +48,10 @@
     max-width: 1170px;
   }
 }
+
+@mixin section_spacing {
+  padding-top: $spacing-xl;
+  &:last-child {
+    margin-bottom: 100px;
+  }
+}

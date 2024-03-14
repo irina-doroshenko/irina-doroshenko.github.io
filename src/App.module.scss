@@ -3,8 +3,4 @@
 
 .wrapper {
   @include wrapper;
-
-  display: flex;
-  flex-direction: column;
-  gap: $spacing-xl;
 }

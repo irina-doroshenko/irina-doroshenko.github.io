@@ -1,0 +1,51 @@
+@use '../../style/variables' as *;
+@use '../../style/mixins' as *;
+
+.label {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+
+  input[type='radio'] {
+    width: 0;
+    height: 0;
+    margin: 0;
+    visibility: hidden;
+  }
+
+  .radio {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin-right: 12px;
+    background-color: transparent;
+    border: 1px solid $landing-secondary-color;
+
+    &::before {
+      display: block;
+      position: absolute;
+      content: '';
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 10px;
+      height: 10px;
+      background-color: $landing-secondary-color;
+      opacity: 0;
+      border-radius: 50%;
+    }
+
+    &.checked::before {
+      opacity: 1;
+    }
+  }
+
+  .labelText {
+    @include typography_text;
+    color: $landing-black-color;
+    vertical-align: middle;
+  }
+}

@@ -5,6 +5,7 @@ interface ButtonProps {
   disabled?: boolean;
   className?: string;
   onClick?: MouseEventHandler;
+  type?: 'submit' | 'button';
 }
 
 export const Button: FC<PropsWithChildren<ButtonProps>> = ({
@@ -12,9 +13,11 @@ export const Button: FC<PropsWithChildren<ButtonProps>> = ({
   className,
   onClick,
   children,
+  type = 'submit',
 }) => {
   return (
     <button
+      type={type}
       disabled={disabled}
       className={`${styles.button} ${className || ''}`}
       onClick={onClick}

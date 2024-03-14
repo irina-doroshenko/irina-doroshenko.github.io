@@ -3,8 +3,11 @@
 
 .headerWrapper {
   position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
   background: $landing-white;
+  z-index: 100;
 }
 
 .header {

@@ -20,6 +20,7 @@ export const InputField: FC<InputFieldProps> = ({
   value,
   name,
   onChange,
+  onBlur,
   type = 'text',
   label,
   helperText,
@@ -35,13 +36,16 @@ export const InputField: FC<InputFieldProps> = ({
     }
   };
 
-  const onBlurHandler = (e: FocusEvent<HTMLInputElement>) => {
-    if (type === 'tel') {
-      const enteredValue = e.target.value.slice(countyCode.length);
-      !enteredValue && (e.target.value = '');
-      !enteredValue && onChange(e);
+  const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
+    if (type === 'tel' && e.target.value.length < countyCode.length) {
+      e.target.value = countyCode;
     }
+    onChange(e);
+  };
+
+  const onBlurHandler = (e: FocusEvent<HTMLInputElement>) => {
     e.target.placeholder = label;
+    onBlur && onBlur(e);
   };
 
   return (
@@ -49,7 +53,7 @@ export const InputField: FC<InputFieldProps> = ({
       <input
         value={value}
         name={name}
-        onChange={onChange}
+        onChange={onChangeHandler}
         type={type}
         placeholder={label}
         onFocus={onFocusHandler}

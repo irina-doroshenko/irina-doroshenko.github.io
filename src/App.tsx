@@ -4,6 +4,7 @@ import { Hero } from './sections/Hero';
 import { UsersSections } from './sections/Users';
 import styles from './App.module.scss';
 import { RootStoreContextProvider } from './contexts/RootStoreContext';
+import { SignUpSection } from './sections/SignUp';
 
 const App: FC = () => {
   const usersRef = useRef<HTMLElement>(null);
@@ -15,17 +16,7 @@ const App: FC = () => {
       <div className={styles.wrapper}>
         <Hero signUpRef={signUpRef} />
         <UsersSections refElem={usersRef} />
-        <section ref={signUpRef}>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ratione
-          laudantium inventore itaque obcaecati quidem dolore consectetur
-          tenetur eaque est libero velit nisi eligendi nihil molestiae adipisci,
-          voluptate fugit dicta officiis veritatis voluptatem cupiditate at
-          sequi unde. Exercitationem cupiditate, veritatis quae voluptas
-          dignissimos voluptate possimus necessitatibus, recusandae ad similique
-          sequi rerum magnam ipsam laborum commodi doloribus aliquam, quos eum.
-          Aspernatur culpa dolore atque sapiente aliquid earum ex dolor adipisci
-          libero beatae cumque impedit sequi, perspiciatis assumenda iusto?
-        </section>
+        <SignUpSection refElem={signUpRef} />
       </div>
     </RootStoreContextProvider>
   );
