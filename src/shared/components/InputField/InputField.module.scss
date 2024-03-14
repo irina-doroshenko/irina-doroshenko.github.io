@@ -42,6 +42,7 @@
     border-radius: $field-radius;
     border: 1px solid $border-gray;
     background-color: transparent;
+    appearance: none;
 
     &.error {
       border: 1px solid $helper-text-error;
