@@ -1,9 +1,9 @@
-import { FC, RefObject, useEffect } from 'react';
+import { FC, RefObject } from 'react';
 import { SignUpForm } from './components/SignUpForm';
 import { observer } from 'mobx-react-lite';
 import { useRootStoreContext } from '../../contexts/RootStoreContext';
-import SuccessImg from '../../assets/success-image.svg';
 import styles from './SignUpSection.module.scss';
+import { SuccessScreen } from './components/SuccessScreen';
 
 interface SignUpSectionsProps {
   refElem: RefObject<HTMLElement>;
@@ -12,17 +12,8 @@ interface SignUpSectionsProps {
 export const SignUpSection: FC<SignUpSectionsProps> = observer(
   ({ refElem }) => {
     const {
-      userStore: { isUserCreationSuccess, setIsUserCreationSuccess },
+      userStore: { isUserCreationSuccess },
     } = useRootStoreContext();
-
-    useEffect(() => {
-      let timer: NodeJS.Timeout;
-      if (isUserCreationSuccess) {
-        timer = setTimeout(() => setIsUserCreationSuccess(false), 5000);
-      }
-
-      return () => clearTimeout(timer);
-    }, [isUserCreationSuccess, setIsUserCreationSuccess]);
 
     return (
       <section className={styles.section} ref={refElem}>
@@ -33,9 +24,7 @@ export const SignUpSection: FC<SignUpSectionsProps> = observer(
         )}
         {isUserCreationSuccess && <h1>User successfully registered</h1>}
         {!isUserCreationSuccess && <SignUpForm />}
-        {isUserCreationSuccess && (
-          <img loading="lazy" src={SuccessImg} className={styles.successImg} />
-        )}
+        {isUserCreationSuccess && <SuccessScreen delayMS={5000} />}
       </section>
     );
   }

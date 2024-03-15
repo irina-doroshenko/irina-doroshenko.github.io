@@ -17,7 +17,7 @@ export default class UserStore {
   isUsersLoading = false;
 
   isUserCreating = false;
-  isUserCreationSuccess = false;
+  isUserCreationSuccess = true;
 
   constructor(rootStore: RootStore) {
     this.rootStore = rootStore;
