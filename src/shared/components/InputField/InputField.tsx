@@ -1,10 +1,11 @@
 import { ChangeEvent, FC, FocusEvent } from 'react';
 import styles from './InputField.module.scss';
+import { formatUkrainePhoneNumber } from '../../../utils/formatUkrainePhoneNumber';
 
 interface InputFieldProps {
   value: string;
   name: string;
-  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  onChange: (value: string) => void;
   onBlur?: (e: FocusEvent<HTMLInputElement>) => void;
   type?: 'text' | 'tel' | 'email';
   label: string;
@@ -31,22 +32,22 @@ export const InputField: FC<InputFieldProps> = ({
   const onFocusHandler = (e: FocusEvent<HTMLInputElement>) => {
     e.target.placeholder = '';
     if (type === 'tel' && !e.target.value) {
-      e.target.value = `+${countyCode}`;
-      onChange(e);
+      onChange(`+${countyCode}`);
     }
   };
 
+  const onPhoneChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
+    let barePhone = e.target.value.replace(/\D/g, '');
+
+    if (barePhone.length < countyCode.length) {
+      barePhone = `${countyCode}`;
+    }
+
+    onChange(`+${barePhone}`);
+  };
+
   const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
-    if (type === 'tel' && e.target.value.slice(1).length < countyCode.length) {
-      e.target.value = `+${countyCode}`;
-    }
-
-    if (type === 'tel') {
-      e.target.value =
-        e.target.value[0] + e.target.value.slice(1).replace(/\D/g, '');
-    }
-
-    onChange(e);
+    onChange(e.target.value);
   };
 
   const onBlurHandler = (e: FocusEvent<HTMLInputElement>) => {
@@ -57,9 +58,9 @@ export const InputField: FC<InputFieldProps> = ({
   return (
     <div className={styles.inputWrapper}>
       <input
-        value={value}
+        value={type === 'tel' ? formatUkrainePhoneNumber(value) : value}
         name={name}
-        onChange={onChangeHandler}
+        onChange={type === 'tel' ? onPhoneChangeHandler : onChangeHandler}
         type={type}
         placeholder={label}
         onFocus={onFocusHandler}

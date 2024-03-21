@@ -53,8 +53,8 @@ export const SignUpForm: FC = observer(() => {
           onBlur={formik.handleBlur}
           isError={!!formik.touched.name && !!formik.errors.name}
           errorText={formik.errors.name}
-          onChange={(e) => {
-            formik.handleChange(e);
+          onChange={(value) => {
+            formik.setFieldValue('name', value);
           }}
         />
         <InputField
@@ -62,8 +62,8 @@ export const SignUpForm: FC = observer(() => {
           type="email"
           label="email"
           value={formik.values.email}
-          onChange={(e) => {
-            formik.handleChange(e);
+          onChange={(value) => {
+            formik.setFieldValue('email', value);
           }}
           onBlur={formik.handleBlur}
           isError={!!formik.touched.email && !!formik.errors.email}
@@ -75,8 +75,8 @@ export const SignUpForm: FC = observer(() => {
           label="phone"
           helperText="+38 (XXX) XXX - XX - XX"
           value={formik.values.phone}
-          onChange={(e) => {
-            formik.handleChange(e);
+          onChange={(value) => {
+            formik.setFieldValue('phone', value);
           }}
           onBlur={formik.handleBlur}
           isError={!!formik.touched.phone && !!formik.errors.phone}

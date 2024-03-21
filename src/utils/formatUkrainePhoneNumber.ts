@@ -1,14 +1,17 @@
+const formattingGroupRegExp =
+  /^(?<plus>\+{0,1})(?<part1>\d{0,2})(?<part2>\d{0,3})(?<part3>\d{0,3})(?<part4>\d{0,2})(?<part5>\d{0,})$/;
+
 export const formatUkrainePhoneNumber = (phoneNumber: string) => {
-  const cleanedNumber = phoneNumber.replace(/\D/g, '');
+  const matchedGroups = phoneNumber.match(formattingGroupRegExp)?.groups;
 
-  const countryCode = cleanedNumber.slice(0, 2);
-  const operatorCode = cleanedNumber.slice(2, 5);
-  const firstPart = cleanedNumber.slice(5, 8);
-  const secondPart = cleanedNumber.slice(8, 10);
-  const thirdPart = cleanedNumber.slice(10, 12);
-  const extraPart = cleanedNumber.slice(12);
+  if (!matchedGroups) return phoneNumber;
 
-  const transformedNumber = `+${countryCode} (${operatorCode}) ${firstPart} ${secondPart} ${thirdPart}${extraPart && ' ' + extraPart}`;
+  const plus = matchedGroups?.plus;
+  const partOne = matchedGroups?.part1;
+  const partTwo = matchedGroups?.part2 && ` (${matchedGroups?.part2}`;
+  const partThree = matchedGroups?.part3 && `) ${matchedGroups?.part3}`;
+  const partFour = matchedGroups?.part4 && ` ${matchedGroups?.part4}`;
+  const partFive = matchedGroups?.part5 && ` ${matchedGroups?.part5}`;
 
-  return transformedNumber;
+  return `${plus}${partOne}${partTwo}${partThree}${partFour}${partFive}`;
 };
