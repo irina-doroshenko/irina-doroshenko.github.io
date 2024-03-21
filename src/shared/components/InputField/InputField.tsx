@@ -26,20 +26,26 @@ export const InputField: FC<InputFieldProps> = ({
   helperText,
   isError,
   errorText,
-  countyCode = '+38',
+  countyCode = '380',
 }) => {
   const onFocusHandler = (e: FocusEvent<HTMLInputElement>) => {
     e.target.placeholder = '';
     if (type === 'tel' && !e.target.value) {
-      e.target.value = countyCode;
+      e.target.value = `+${countyCode}`;
       onChange(e);
     }
   };
 
   const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
-    if (type === 'tel' && e.target.value.length < countyCode.length) {
-      e.target.value = countyCode;
+    if (type === 'tel' && e.target.value.slice(1).length < countyCode.length) {
+      e.target.value = `+${countyCode}`;
     }
+
+    if (type === 'tel') {
+      e.target.value =
+        e.target.value[0] + e.target.value.slice(1).replace(/\D/g, '');
+    }
+
     onChange(e);
   };
 
